@@ -1,0 +1,21 @@
+version: '2.0'
+services:
+  db:
+    container_name: backend_db
+    image: postgres:10.1
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: configuration
+      POSTGRES_DB: configuration
+      POSTGRES_USER: configuration
+    volumes:
+      - pgData:/var/lib/postgresql/data
+  splash:
+    image: scrapinghub/splash
+    container_name: backend_splash
+    ports:
+      - 8050:8050
+
+volumes:
+  pgData:
